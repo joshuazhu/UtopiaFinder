@@ -1,20 +1,27 @@
-service: serverless-graphql
+service:
+  name: utopiafinder
 
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+
+# Add the serverless-webpack plugin
 plugins:
+  - serverless-webpack
   - serverless-offline
   - serverless-dotenv-plugin
 
 provider:
   name: aws
-  runtime: nodejs10.x
-  stage: dev
-  region: us-east-1
+  runtime: nodejs12.x
+  region: ap-southeast-2
 
 functions:
   graphql:
-    handler: lambda.handler
+    handler: src/graphql/apollo-server.graphqlHandler
     events:
       - http:
           path: graphql
-          method: any
+          method: post
           cors: true

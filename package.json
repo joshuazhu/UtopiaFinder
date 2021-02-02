@@ -1,82 +1,28 @@
 {
-  "name": "@tomyitav/apollo-typed-lambda",
+  "name": "utopiafinder",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Serverless webpack example using Typescript",
+  "main": "handler.js",
   "scripts": {
-    "build-schema": "rimraf ./dist/graphql/schema/ && find src/graphql/types -iname \"*.ts\" > ts-files.txt && tsc ./src/graphql/schema/genereator-schema.ts --outDir ./dist/graphql/schema/ --lib esnext && tsc @ts-files.txt --outDir ./dist/graphql/types --lib esnext && rimraf ts-files.txt",
-    "build-schema:win": "rimraf ./dist/graphql/schema/ && dir /s /b \"src/graphql/types\" | findstr /e .ts > ts-files.txt && tsc ./src/graphql/schema/genereator-schema.ts --outDir ./dist/graphql/schema/ --lib esnext && tsc @ts-files.txt --outDir ./dist/graphql/types --lib esnext && del ts-files.txt",
-    "generate-ts": "gql-gen",
-    "pregenerate": "npm run build-schema",
-    "pregenerate:win": "npm run build-schema:win",
-    "generate": "npm run generate-ts",
-    "generate:win": "npm run generate-ts",
-    "clean": "rimraf dist",
-    "prebuild": "npm run clean && npm run generate",
-    "build": "npm run tsc",
-    "build:win": "npm run tsc:win",
-    "start": "sls offline start --skipCacheInvalidation",
-    "dev": "tsc --watch & nodemon dist",
-    "test": "tsc && mocha dist/**/*.spec.js",
-    "lint": "eslint src --ext ts",
-    "tsc": "tsc",
-    "tsc:win": "tsc",
-    "sls:offline": "npm run build && npm start",
-    "sls:offline:win": "npm run build && npm start",
-    "tslint": "tslint --fix -c tslint.json 'src/**/*.ts'",
-    "prettier": "prettier --write \"src/**/*.ts\"",
-    "precommit-tslint": "tslint --fix -c tslint.json",
-    "precommit-prettier": "prettier --write",
-    "tslint-check": "tslint-config-prettier-check ./tslint.json",
-    "deploy": "npm run build && sls deploy"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "linters": {
-      "*.ts": [
-        "npm run precommit-tslint",
-        "npm run precommit-prettier",
-        "git add"
-      ]
-    }
-  },
-  "_moduleAliases": {
-    "@src": "dist"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "apollo-server-lambda": "2.6.4",
-    "core-js": "3.1.4",
-    "graphql": "14.3.1",
-    "graphql-tools": "4.0.4",
-    "injection-js": "2.2.1",
-    "merge-graphql-schemas": "1.5.8",
-    "module-alias": "2.2.2",
-    "reflect-metadata": "0.1.13",
-    "zone.js": "0.9.1"
+    "apollo-server-lambda": "^2.19.2",
+    "graphql": "^15.5.0",
+    "source-map-support": "^0.5.10"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "1.2.1",
-    "@graphql-codegen/typescript": "1.2.1",
-    "@graphql-codegen/typescript-operations": "1.2.1",
-    "@types/graphql": "14.2.1",
-    "@types/node": "12.0.12",
-    "husky": "2.4.1",
-    "lint-staged": "8.2.1",
-    "prettier": "1.18.2",
-    "rimraf": "2.6.3",
-    "serverless-dotenv-plugin": "2.1.1",
-    "serverless-offline": "5.3.3",
-    "tslint": "5.18.0",
-    "tslint-config-prettier": "1.18.0",
-    "tslint-eslint-rules": "5.4.0",
-    "tslint-react": "4.0.0",
-    "typescript": "3.5.3"
-  }
+    "@types/aws-lambda": "^8.10.17",
+    "@types/node": "^10.12.18",
+    "fork-ts-checker-webpack-plugin": "^3.0.1",
+    "serverless-dotenv-plugin": "^3.1.0",
+    "serverless-offline": "^6.8.0",
+    "serverless-webpack": "^5.3.5",
+    "ts-loader": "^8.0.14",
+    "typescript": "^4.1.3",
+    "webpack": "^5.19.0",
+    "webpack-node-externals": "^2.5.2"
+  },
+  "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
+  "license": "MIT"
 }

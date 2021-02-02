@@ -1,9 +1,0 @@
-schema:
-- "./dist/graphql/schema/genereator-schema.js"
-documents: []
-overwrite: true
-generates:
-  ./src/interfaces/types.d.ts:
-    plugins:
-    - "typescript"
-require: []

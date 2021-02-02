@@ -1,29 +1,29 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "outDir": "dist",
+    "lib": ["es2017"],
+    "removeComments": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "sourceMap": true,
-    "experimentalDecorators": true,
-    "skipLibCheck": true,
+    "target": "es2017",
     "emitDecoratorMetadata": true,
-    "baseUrl": ".",
-    "paths": {
-      "@src/*": ["src/*"]
-    },
-    "lib": [
-      "es2017",
-      "dom",
-      "esnext.asynciterable"
-    ]
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "CommonJS",
+    "outDir": ".build",
+    "preserveConstEnums": true,
+    "rootDir": "./",
+    "skipLibCheck": true,
   },
-  "files": [
-    "./node_modules/@types/node/index.d.ts"
-  ],
-  "include": [
-    "src/**/*.ts"
-  ],
+  "include": ["./**/*.ts"],
   "exclude": [
-    "node_modules"
+    "node_modules/**/*",
+    ".serverless/**/*",
+    ".webpack/**/*",
+    "_warmup/**/*",
+    ".vscode/**/*",
+    "src/**/*.test.ts"
   ]
 }

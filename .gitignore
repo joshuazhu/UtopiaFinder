@@ -1,8 +1,9 @@
+# package directories
 node_modules
-dist
-npm-debug.log
-.idea
-.env
+jspm_packages
+
+# Serverless directories
 .serverless
-types.d.ts
-ts-files.txt
+
+# Webpack directories
+.webpack
